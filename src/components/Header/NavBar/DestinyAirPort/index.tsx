@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { IAppState } from '../../../../redux/configureStore';
 
 export default function DestinyAirPort() {
-  const listaAeroportos = useSelector((state: IAppState) => state.listaDeAeroportos.aeroportos);
+  const listaAeroportos = useSelector((state: IAppState) => state.airportsList.aeroportos);
 
   return (
     <div className="select-picker">
