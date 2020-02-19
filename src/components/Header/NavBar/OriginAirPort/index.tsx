@@ -1,30 +1,17 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 
-
-interface IAirports {
-  name: string;
-}
-
+import { IAppState } from '../../../../redux/configureStore';
 
 export default function OriginAirPort() {
-  async function getAirportsList() {
-    const response = await fetch('https://api-voadora.dev.tegra.com.br/flight/companies');
-    const airports = response.json();
-
-    return airports;
-  }
-  
+  const listaAeroportos = useSelector((state: IAppState) => state.listaDeAeroportos.aeroportos);
 
 
   return (
     <div className="select-picker">
       <label className="origin" htmlFor="origin-picker">Aeroporto de Origem</label>
       <select className="origin-picker">
-        <option value="brazil">Capela do Alto</option>
-        <option value="brazil">Capela do Alto</option>
-        <option value="brazil">Capela do Alto</option>
-        <option value="brazil">Capela do Alto</option>
-        <option value="brazil"></option>
+        {listaAeroportos.map(aeroporto => <option key={aeroporto} >{aeroporto}</option>)}
       </select>
     </div>
   )

@@ -4,14 +4,12 @@ import store from '../redux/configureStore';
 import './App.css';
 
 import HeaderTitle from './Header';
-import MyButton from './Button';
 
 function App() {
   return (
     <ReactRedux.Provider store={store}>  
       <div className="App">
       <HeaderTitle />
-      <MyButton />
       </div>
     </ReactRedux.Provider>
   );

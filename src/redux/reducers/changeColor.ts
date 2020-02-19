@@ -1,4 +1,3 @@
-
 const INITIAL_STATE = {
   color: 'white',
 };
@@ -12,10 +11,6 @@ export default function reducer(state = INITIAL_STATE, action:any) {
       return {
         color: action.color
       }
-      break;
-    case 2:
-      console.log('e 2');
-      break;
     default:
       return state;
   }
@@ -24,9 +19,9 @@ export default function reducer(state = INITIAL_STATE, action:any) {
 
 
 //ACTION = CRIA A "REGRA" DO REDUCER
-export function changeColor() {
+export function changeColorAction(choicedColor: string) {
   return {
     type: 'CHANGE_COLOR',
-    color: 'red'
+    color: choicedColor,
   }
 }
