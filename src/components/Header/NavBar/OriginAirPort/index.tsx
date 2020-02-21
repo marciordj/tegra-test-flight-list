@@ -1,17 +1,20 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import * as ReactRedux from 'react-redux';
 
-import { IAppState } from '../../../../redux/configureStore';
+import { getFlightListAction } from '../../../../redux/reducers/airportsList';
 
 export default function OriginAirPort() {
-  const listaAeroportos = useSelector((state: IAppState) => state.airportsList.aeroportos);
+  const dispatch = ReactRedux.useDispatch();
 
+  React.useEffect(() => {
+    dispatch(getFlightListAction());
+  }, []);
 
   return (
     <div className="select-picker">
       <label className="origin" htmlFor="origin-picker">Aeroporto de Origem</label>
       <select className="origin-picker">
-        {listaAeroportos.map(aeroporto => <option key={aeroporto} >{aeroporto}</option>)}
+        {/* {listaAeroports.map(aeroporto => <option key={aeroporto} >{aeroporto}</option>)} */}
       </select>
     </div>
   )

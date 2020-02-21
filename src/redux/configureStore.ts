@@ -1,8 +1,9 @@
 import * as Redux from 'redux';
 import * as ReduxDevTools from 'redux-devtools-extension';
+import ReduxThunk from 'redux-thunk';
 
 
-import airportsListReducer from './reducers/airportsList';
+import flightListReducer from './reducers/airportsList';
 
 
 
@@ -10,7 +11,7 @@ import airportsListReducer from './reducers/airportsList';
 
 
 const rootReducer = Redux.combineReducers({
-  airportsList: airportsListReducer
+  flightList: flightListReducer,
 });
 
 
@@ -19,7 +20,7 @@ const rootReducer = Redux.combineReducers({
 
 export type IAppState = ReturnType<typeof rootReducer>;
 
-const store = Redux.createStore(rootReducer, ReduxDevTools.composeWithDevTools());
+const store = Redux.createStore(rootReducer, ReduxDevTools.composeWithDevTools(Redux.applyMiddleware(ReduxThunk)));
 
 
 export default store;
